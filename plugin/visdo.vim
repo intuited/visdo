@@ -32,3 +32,5 @@ endfunction
 function! ReverseWords(words)
   return join(reverse(split(a:words)))
 endfunction
+
+command! -range ReverseVisualWords call TransformVisual(function('ReverseWords'))
