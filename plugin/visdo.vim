@@ -4,6 +4,7 @@ function! GetVisualCols()
 endfunction
 
 " Convert a 0-based string index to an RE atom using 1-based column index
+" :help /\%c
 function! ColAtom(index)
   return '\%' . string(a:index + 1) . 'c'
 endfunction
