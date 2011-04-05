@@ -1,5 +1,3 @@
-command! -nargs=1 Dump echo <q-args> . ": " . string(<args>)
-
 " Return 1-based column numbers for the start and end of the visual selection.
 function! GetVisualCols()
   return [getpos("'<")[2], getpos("'>")[2]]
@@ -21,17 +19,13 @@ function! TransformVisual(Transform)
   let line = getline("'<")
 
   let [startCol, endCol] = GetVisualCols()
-  Dump [startCol, endCol]
 
   " Column numbers are 1-based; string indexes are 0-based
   let [startIndex, endIndex] = [startCol - 1, endCol - 1]
 
   let visualSelection = line[startIndex : endIndex]
-  Dump visualSelection
   let transformed = a:Transform(visualSelection)
-  Dump transformed
   let transformed_line = StrReplace(line, startIndex, endIndex, transformed)
-  Dump transformed_line
   call setline("'<", transformed_line)
 endfunction
 
