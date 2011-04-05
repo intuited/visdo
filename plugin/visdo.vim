@@ -36,5 +36,8 @@ function! ReverseWords(words)
   return join(reverse(split(a:words)))
 endfunction
 
+" Use -range to allow range to be passed
+" as by default for commands initiated from visual mode,
+" then ignore it.
 command! -range ReverseCharwiseVisualWords
       \ call TransformCharwiseVisual(function('ReverseWords'))
