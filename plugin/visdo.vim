@@ -55,3 +55,12 @@ function! TransformYankPasteVisual(Transform)
     call call(function('setreg'), ['"'] + original_unnamed)
   endtry
 endfunction
+
+
+
+
+command! -range -nargs=1 VisDo
+      \ call visdo#ReplaceVisualSelection(
+      \   visdo#DoInNewBuffer(<q-args>,
+      \                       visdo#GetVisualSelection(),
+      \                       g:))
