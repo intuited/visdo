@@ -4,7 +4,7 @@
 " as though they were entire lines.
 " The local or global variable context is made available to the execed command
 " as its local context.
-command! -range -nargs=1 VisDo
+command! -range -nargs=1 -complete=command VisDo
       \ call visdo#ReplaceVisualSelection(
       \   visdo#DoInNewBuffer(<q-args>,
       \                       visdo#GetVisualSelection(),
