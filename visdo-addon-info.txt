@@ -1,0 +1,5 @@
+{ "name": "visdo",
+  "version": "0.2",
+  "author": "Ted Tibbetts",
+  "description": "Convenient execution of commands on character- and line-wise visual selections."
+}
