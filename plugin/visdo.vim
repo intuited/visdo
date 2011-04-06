@@ -42,3 +42,16 @@ endfunction
 " then ignore it.
 command! -range ReverseCharwiseVisualWords
       \ call TransformCharwiseVisual(function('ReverseWords'))
+
+
+function! TransformYankPasteVisual(Transform)
+  let original_unnamed = [getreg('"'), getregtype('"')]
+  try
+    " Reactivate and yank the current visual selection.
+    normal gvy
+    let @" = a:Transform(@")
+    normal gvp
+  finally
+    call call(function('setreg'), ['"'] + original_unnamed)
+  endtry
+endfunction
